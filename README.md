@@ -19,17 +19,17 @@ Estas instrucciones estan escritas y han sido probadas para correr en ... (windo
 El script completo se encuentra aqui (no subi el script como .sh)
 
 ## 1. Crear el nuevo Mapset dentro del Location posgar_faja5
-
-´g.mapset -c mapset=mod13a3´
-
+```
+g.mapset -c mapset=mod13a3
+```
 ## 2. Download MODIS NDVI data
-
+```
 i.modis.download settings=$HOME/gisdata/NASA_SETTING.txt \
   product=ndvi_terra_monthly_1000 \
   tile=h13v12 \
   startday=2019-01-01 endday=2020-12-31 \
   folder=/tmp
-
+```
 ## 3. Import NDVI , EVI and VI Quality bands
 
 i.modis.import files=/tmp/listfileMOD13A3.006.txt \

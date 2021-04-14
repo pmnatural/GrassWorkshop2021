@@ -18,11 +18,12 @@ Estas instrucciones estan escritas y han sido probadas para correr en ... (windo
 
 El script completo se encuentra aqui (no subi el script como .sh)
 
-## 1.Crear el nuevo Mapset dentro del Location posgar_faja5
+## 1. Crear el nuevo Mapset dentro del Location posgar_faja5
 
-g.mapset -c mapset=mod13a3
+´g.mapset -c mapset=mod13a3´
 
 ## 2. Download MODIS NDVI data
+
 i.modis.download settings=$HOME/gisdata/NASA_SETTING.txt \
   product=ndvi_terra_monthly_1000 \
   tile=h13v12 \

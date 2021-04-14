@@ -39,7 +39,7 @@ i.modis.import files=/tmp/listfileMOD13A3.006.txt \
 ```
 g.region -p raster=MOD13A3.A2020001.h13v12.single_1_km_monthly_NDVI
 ```
-## 5. Create the STRDS (time series) for NDVI (EVI) and QA bands and register maps
+### 5. Create the STRDS (time series) for NDVI (EVI) and QA bands and register maps
 ```
 t.create type=strds temporaltype=absolute output=ndvi \
   title="NDVI" \

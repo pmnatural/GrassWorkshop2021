@@ -21,7 +21,7 @@ Estas instrucciones estan escritas y han sido probadas para correr en ... (windo
 
 El script completo se encuentra aqui (no subi el script como .sh)
 
-### 1. Crear el nuevo Mapset dentro del Location posgar_faja5
+### 1. Create a new Mapset under Location posgar_faja5
 ```
 g.mapset -c mapset=mod13q1
 ```
@@ -68,15 +68,15 @@ t.rast.mapcalc inputs=QA output=QA_f7 basename=QA_f7 expression="QA & 0x3800"
 t.rast.mapcalc inputs=QA output=QA_f8 basename=QA_f8 expression="QA & 0x4000" 
 t.rast.mapcalc inputs=QA output=QA_f9 basename=QA_f9 expression="QA & 0x8000"
 ```
-### 7. Realizo una máscara por cada fecha teniendo en cuenta la información de los flags
+### 7. Create a mask for each date using flags' information
 ```
 t.rast.mapcalc inputs=QA_f1,QA_f2,QA_f3,QA_f4,QA_f5,QA_f6,QA_f7,QA_f8,QA_f9 output=QA_mask basename=QA_mask expression="if(QA_f1 == 0 && QA_f2 < 20 && QA_f4 < 192 && QA_f6 == 0 && QA_f8 == 0 && QA_f9 ==  0, 0, 1)"
 ```
-### 8. Enmascaro los pixeles con problemas en la serie de ndvi
+### 8. Mask low quality pixels in ndvi serie
 ```
 t.rast.mapcalc inputs=QA_mask,ndvi expression="if(QA_mask==0,ndvi,null())" output=ndvi_masked basename=ndvi_masked
 ```
-### 9. Creo una serie de imágenes teniendo en cuenta la vecindad para el ndvi
+### 9. Create a ndvi time series using spatial interpolation (by neighborhood analysis) 
 ```
 t.rast.neighbors input=ndvi output=ndvi_nb method=average basename=ndvi_nb size=3
 ```

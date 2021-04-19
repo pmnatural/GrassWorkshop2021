@@ -47,14 +47,8 @@ t.create type=strds temporaltype=absolute output=ndvi \
   description="NDVI 16 days MOD13Q1" 
 t.register -i input=ndvi  maps=`g.list type=raster pattern="MOD13Q1*NDVI*" separator=comma`  start="2020-01-01" increment="16 days" 
 ```
-#### 5.2 Create the STRDS for EVI and register
-```
-t.create type=strds temporaltype=absolute output=evi \
-  title="EVI" \
-  description="EVI 16 days MOD13Q1" 
-t.register -i input=evi  maps=`g.list type=raster pattern="MOD13Q1*EVI*" separator=comma`  start="2020-01-01" increment="16 days"
-```
-#### 5.3 Create the STRDS for pixel QA and register
+
+#### 5.2 Create the STRDS for pixel QA and register
 ```
 t.create output=QA type=strds temporaltype=absolute title="QA 16 days" description="Calidad del pixel"
 t.register -i input=QA  maps=`g.list type=raster pattern="MOD13Q1*VI_Quality*" separator=comma`  start="2020-01-01" increment="16 days"

@@ -21,37 +21,37 @@ El script completo se encuentra aqui (no subi el script como .sh)
 
 ### 1. Crear el nuevo Mapset dentro del Location posgar_faja5
 ```
-g.mapset -c mapset=mod13a3
+g.mapset -c mapset=mod13q1
 ```
-### 2. Download MODIS NDVI data
+### 2. Download MODIS data
 ```
 i.modis.download settings=$HOME/gisdata/NASA_SETTING.txt \
-  product=ndvi_terra_monthly_1000 \
+  product=ndvi_terra_sixteen_250 \
   tile=h13v12 \
-  startday=2019-01-01 endday=2020-12-31 \
+  startday=2020-01-01 endday=2020-12-31 \
   folder=/tmp
 ```
 ### 3. Import NDVI , EVI and VI Quality bands
 ```
 i.modis.import files=/tmp/listfileMOD13A3.006.txt \
-  spectral="( 1 1 1 0 0 0 0 0 0 0 0 )"
+  spectral="( 1 1 1 0 0 0 0 0 0 0 0 0 )"
 ```
 ### 4. Set region to map extension and resolution
 ```
-g.region -p raster=MOD13A3.A2020001.h13v12.single_1_km_monthly_NDVI
+g.region -p raster=MOD13Q1.A2020001.h13v12.single_250m_16_days_NDVI
 ```
 ### 5. Create the STRDS (time series) for NDVI (EVI) and QA bands and register maps
 ```
 t.create type=strds temporaltype=absolute output=ndvi \
   title="NDVI" \
-  description="NDVI Monthly MOD13A3" 
-t.register -i input=ndvi  maps=`g.list type=raster pattern="MOD13A3*NDVI*" separator=comma`  start="2019-01-01" increment="1 months" 
+  description="NDVI 16 days MOD13Q1" 
+t.register -i input=ndvi  maps=`g.list type=raster pattern="MOD13Q1*NDVI*" separator=comma`  start="2020-01-01" increment="16 days" 
 t.create type=strds temporaltype=absolute output=evi \
   title="EVI" \
-  description="EVI Monthly MOD13A3" 
-t.register -i input=evi  maps=`g.list type=raster pattern="MOD13A3*EVI*" separator=comma`  start="2019-01-01" increment="1 months"
+  description="EVI 16 days MOD13Q1" 
+t.register -i input=evi  maps=`g.list type=raster pattern="MOD13Q1*EVI*" separator=comma`  start="2020-01-01" increment="16 days"
 t.create output=QA type=strds temporaltype=absolute title="QA 16 days" description="Calidad del pixel"
-t.register -i input=QA  maps=`g.list type=raster pattern="MOD13A3*VI_Quality*" separator=comma`  start="2019-01-01" increment="1 months"
+t.register -i input=QA  maps=`g.list type=raster pattern="MOD13Q1*VI_Quality*" separator=comma`  start="2020-01-01" increment="16 days"
 ```
 ### 6. Generate a mask for each bitcode flag
 ```

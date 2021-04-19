@@ -1,8 +1,7 @@
 # GrassWorkshop2021
 GrassGIS Workshop 2021 - Taller Grass 2021
 
-
-Aqui esta nuestro proyecto final de trabajo del Taller de Grass 2021 del Instituto Gulich dictado por Verónica Andreo.  This is the repository of our final project of the GRASS GIS workshop given by Veronica Andreo at Instituto Gulich
+This is the repository of our final project of the GRASS GIS workshop given by Veronica Andreo at Instituto Gulich
 
 The objectives of this workflow are:
 
@@ -11,19 +10,20 @@ The objectives of this workflow are:
 * Mask low quality pixels.
 * Generate time series where pixels with problems are replaced with data interpolated spatially and/or temporally. 
 
-## Requerimientos para realizar este tutorial
-* Install i.modis last version to be able to download MOD13A3 products, recently uploaded. 
-
-Para más detalles sobre este producto de MODIS, visite: https://lpdaac.usgs.gov/products/mod13q1v006/
-Tener creado un nuevo mapset con el SRC deseado (en este ejemplo posgar_faja5)
+## Tutorial requirements
+You will need to have the latest pymodis version installed. Futher information on MODIS products can be found [here](https://lpdaac.usgs.gov/products/mod13q1v006/).
+Grass does not like Modis sinusoidal projection so its better that the mapset has a different and suitable projection. 
+In this case we chose EPSG:5347 which is locally known as posgar_faja5.
+This 
 ...
 Estas instrucciones estan escritas y han sido probadas para correr en ... (windows xx, ubuntu xx)
 
 El script completo se encuentra aqui (no subi el script como .sh)
 
-### 1. Create a new Mapset under Location posgar_faja5
+### 1. Create a new Mapset 
+
 ```
-g.mapset -c mapset=mod13q1
+g.mapset -c mapset=posgar_faja5
 ```
 ### 2. Download MODIS data
 ```
@@ -35,7 +35,7 @@ i.modis.download settings=$HOME/gisdata/NASA_SETTING.txt \
 ```
 ### 3. Import NDVI , EVI and VI Quality bands
 ```
-i.modis.import files=/tmp/listfileMOD13Q1.006.txt \
+i.modis.import files=/tmp/listfileMOD13A3.006.txt \
   spectral="( 1 1 1 0 0 0 0 0 0 0 0 0 )"
 ```
 ### 4. Set region to map extension and resolution
@@ -111,11 +111,33 @@ t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth expression="if(QA_mask==0,ndvi,nd
 t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth_spacetime expression="if(QA_mask==0,ndvi,ndvi_smooth_spacetime)" output=ndvi_filter_smooth_spacetime basename=ndvi_filter_smooth_spacetime
 ```
 
-### 15. Repetir pasos en EVI
-Para repetir con datos EVI, reemplazar NDVI por EVI en los pasos anteriores
+### 15. Mask low quality pixels in evi serie
+t.rast.mapcalc inputs=QA_mask,evi expression="if(QA_mask==0,evi,null())" output=evi_masked basename=evi_masked
+
+### 16. Create an evi time series using spatial interpolation (by neighborhood analysis)
+
+t.rast.neighbors input=evi output=evi_nb method=average basename=evi_nb size=3
+
+### 17. Creo una serie de imágenes suavizada a partir de una media móvil para el evi
+
+t.rast.algebra expression="evi_smooth = 0.5*(evi[1]+evi[-1])" basename=evi_smooth
+
+### 18. Creo una serie de imágenes suavizada teniendo en cuenta el contexto espacio-temporal para el evi 
+
+t.rast.algebra expression="evi_smooth_spacetime=0.3*evi[1]+0.3*evi[-1]+0.10*(evi[0,-1]+evi[0,1]+evi[-1,0]+evi[1,0])" basename=evi_smooth_spacetime
+
+### 19. Reemplazo los pixeles enmascarados de acuerdo a las imágenes de "vecindad"
+
+t.rast.mapcalc inputs=QA_mask,evi,evi_nb expression="if(QA_mask==0,evi,evi_nb)" output=evi_filter_nb basename=evi_filter_nb
+ 
+### 20. Reemplazo los pixeles enmascarados de acuerdo al suavizado por media móvil
+
+t.rast.mapcalc inputs=QA_mask,evi,evi_smooth expression="if(QA_mask==0,evi,evi_smooth)" output=evi_filter_smooth basename=evi_filter_smooth
+
+### 21. Reemplazo los pixeles enmascarados de acuerdo al contexto espacio-temporal
+
+t.rast.mapcalc inputs=QA_mask,evi,evi_smooth_spacetime expression="if(QA_mask==0,evi,evi_smooth_spacetime)" output=evi_filter_smooth_spacetime basename=evi_filter_smooth_spacetime
 
 
-
-![](Images/probando.png)
 
 

@@ -98,7 +98,6 @@ t.rast.algebra expression="ndvi_smooth = 0.5*(ndvi[1]+ndvi[-1])" basename=ndvi_s
 t.rast.algebra expression="ndvi_smooth_spacetime=0.3*ndvi[1]+0.3*ndvi[-1]+0.10*(ndvi[0,-1]+ndvi[0,1]+ndvi[-1,0]+ndvi[1,0])" basename=ndvi_smooth_spacetime
 ```
 
-![](Images/Ejemplo_Reemplazo_NDVI_serie_temporal.JPG "temporal")
 
 ###  12. Replace the masked pixels according to the "neighborhood" images
 ``` 
@@ -114,7 +113,7 @@ t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth_spacetime expression="if(QA_mask=
 ```
 ![](Images/Ejemplo_NDVI_datos_espacio-temporales.JPG "space-time")
 
-
+![](Images/Ejemplo_Reemplazo_NDVI_serie_temporal.JPG "masked vs space-time filtered")
 ### 15. Repeat steps for EVI
 To repeat with EVI data, replace NDVI with EVI in the steps above
 

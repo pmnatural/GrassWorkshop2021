@@ -1,8 +1,5 @@
-# GrassWorkshop2021
+# Space and/or time filters applied to MODIS NDVI and EVI products 
 GrassGIS Workshop 2021 - Taller Grass 2021
-
-
-Aqui esta nuestro proyecto final de trabajo del Taller de Grass 2021 del Instituto Gulich dictado por Verónica Andreo.  This is the repository of our final project of the GRASS GIS workshop given by Veronica Andreo at Instituto Gulich
 
 The objectives of this workflow are:
 

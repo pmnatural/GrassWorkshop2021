@@ -112,8 +112,8 @@ t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth expression="if(QA_mask==0,ndvi,nd
 t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth_spacetime expression="if(QA_mask==0,ndvi,ndvi_smooth_spacetime)" output=ndvi_filter_smooth_spacetime basename=ndvi_filter_smooth_spacetime
 ```
 
-### 15. Repeat steps in EVI
-Para repetir con datos EVI, reemplazar NDVI por EVI en los pasos anteriores
+### 15. Repeat steps for EVI
+To repeat with EVI data, replace NDVI with EVI in the steps above
 
 
 

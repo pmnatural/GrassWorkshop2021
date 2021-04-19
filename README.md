@@ -12,7 +12,7 @@ The objectives of this workflow are:
 * Generate time series where pixels with problems are replaced with data interpolated spatially and/or temporally. 
 
 ## Requirements to perform this tutorial
-* Install i.modis last version to be able to download MOD13A3 products, recently uploaded. 
+* Install i.modis lastest version.
 
 For more details on this MODIS product, visit: https://lpdaac.usgs.gov/products/mod13q1v006/
 

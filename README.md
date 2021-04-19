@@ -6,16 +6,13 @@ Aqui esta nuestro proyecto final de trabajo del Taller de Grass 2021 del Institu
 
 The objectives of this workflow are:
 
-* Download MODIS products, import and re-project them to work with Grass.
+* Download [MODIS](https://lpdaac.usgs.gov/products/mod13q1v006/) products, import and re-project them to work with Grass.
 * Use MODIS' Quality Assessment band to control time series pixels quality.
 * Mask low quality pixels.
 * Generate time series where pixels with problems are replaced with data interpolated spatially and/or temporally. 
 
 ## Requirements to perform this tutorial
 * Install [i.modis](https://grass.osgeo.org/grass78/manuals/addons/i.modis.html) lastest version.
-
-For more details on this MODIS product, visit: https://lpdaac.usgs.gov/products/mod13q1v006/
-
 * Create a mapset with the selected SRC (posgar_faja5, EPSG:5347)
 ...
 these instructions are written and had been tested to run on Windows 10 and Ubuntu xx)

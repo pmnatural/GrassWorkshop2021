@@ -11,14 +11,14 @@ The objectives of this workflow are:
 * Mask low quality pixels.
 * Generate time series where pixels with problems are replaced with data interpolated spatially and/or temporally. 
 
-## Requerimientos para realizar este tutorial
+## Requirements to perform this tutorial
 * Install i.modis last version to be able to download MOD13A3 products, recently uploaded. 
 
-Para más detalles sobre este producto de MODIS, visite: https://lpdaac.usgs.gov/products/mod13q1v006/
+For more details on this MODIS product, visit: https://lpdaac.usgs.gov/products/mod13q1v006/
 
 * Create a mapset with the selected SRC (posgar_faja5, EPSG:5347)
 ...
-Estas instrucciones estan escritas y han sido probadas para correr en ... (windows xx, ubuntu xx)
+these instructions are written and had been tested to run on Windows 10 and Ubuntu xx)
 
 El script completo se encuentra aqui (no subi el script como .sh)
 

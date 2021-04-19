@@ -35,7 +35,7 @@ i.modis.download settings=$HOME/gisdata/NASA_SETTING.txt \
 ```
 ### 3. Import NDVI , EVI and VI Quality bands
 ```
-i.modis.import files=/tmp/listfileMOD13A3.006.txt \
+i.modis.import files=/tmp/listfileMOD13Q1.006.txt \
   spectral="( 1 1 1 0 0 0 0 0 0 0 0 0 )"
 ```
 ### 4. Set region to map extension and resolution

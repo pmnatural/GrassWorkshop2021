@@ -42,22 +42,28 @@ i.modis.import files=/tmp/listfileMOD13A3.006.txt \
 ```
 g.region -p raster=MOD13Q1.A2020001.h13v12.single_250m_16_days_NDVI
 ```
-### 5.1 Create the STRDS (time series) for NDVI (EVI) and QA bands and register maps
+### Create the STRDS (time series) for NDVI, EVI and QA and register their lists of images 
+
+#### 5.1 Create the STRDS for NDVI and register
 ```
 t.create type=strds temporaltype=absolute output=ndvi \
   title="NDVI" \
   description="NDVI 16 days MOD13Q1" 
 t.register -i input=ndvi  maps=`g.list type=raster pattern="MOD13Q1*NDVI*" separator=comma`  start="2020-01-01" increment="16 days" 
-
-###  _5.2 Create the STRDS (time series) for NDVI (EVI) and QA bands and register maps_
-
+```
+#### 5.2 Create the STRDS for EVI and register
+```
 t.create type=strds temporaltype=absolute output=evi \
   title="EVI" \
   description="EVI 16 days MOD13Q1" 
 t.register -i input=evi  maps=`g.list type=raster pattern="MOD13Q1*EVI*" separator=comma`  start="2020-01-01" increment="16 days"
+```
+#### 5.3 Create the STRDS for pixel QA and register
+```
 t.create output=QA type=strds temporaltype=absolute title="QA 16 days" description="Calidad del pixel"
 t.register -i input=QA  maps=`g.list type=raster pattern="MOD13Q1*VI_Quality*" separator=comma`  start="2020-01-01" increment="16 days"
 ```
+
 ### 6. Generate a mask for each bitcode flag
 QA pixel coding is explained in Table 5 from the [MOD13 User Guide](https://lpdaac.usgs.gov/documents/103/MOD13_User_Guide_V6.pdf)
 

@@ -91,28 +91,28 @@ t.rast.mapcalc inputs=QA_mask,ndvi expression="if(QA_mask==0,ndvi,null())" outpu
 ```
 t.rast.neighbors input=ndvi output=ndvi_nb method=average basename=ndvi_nb size=3
 ```
-### 10. Creo una serie de imágenes suavizada a partir de una media móvil para el ndvi
+### 10. Create a series of smoothed images from a moving average for the ndvi
 ```
 t.rast.algebra expression="ndvi_smooth = 0.5*(ndvi[1]+ndvi[-1])" basename=ndvi_smooth
 ```
-### 11. Creo una serie de imágenes suavizada teniendo en cuenta el contexto espacio-temporal para el ndvi 
+### 11. Create a series of images smoothed taking into account the spatio-temporal context for the ndvi
 ```
 t.rast.algebra expression="ndvi_smooth_spacetime=0.3*ndvi[1]+0.3*ndvi[-1]+0.10*(ndvi[0,-1]+ndvi[0,1]+ndvi[-1,0]+ndvi[1,0])" basename=ndvi_smooth_spacetime
 ```
-###  12. Reemplazo los pixeles enmascarados de acuerdo a las imágenes de "vecindad"
+###  12. Replace the masked pixels according to the "neighborhood" images
 ``` 
 t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_nb expression="if(QA_mask==0,ndvi,ndvi_nb)" output=ndvi_filter_nb basename=ndvi_filter_nb
 ```
-### 13.  Reemplazo los pixeles enmascarados de acuerdo al suavizado por media móvil temporal
+### 13.  Replace pixels masked according to temporal moving average smoothing
 ```
 t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth expression="if(QA_mask==0,ndvi,ndvi_smooth)" output=ndvi_filter_smooth basename=ndvi_filter_smooth
 ```
-### 14.  Reemplazo los pixeles enmascarados de acuerdo al contexto espacio-temporal
+### 14.  Replace the masked pixels according to the space-time context
 ```
 t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth_spacetime expression="if(QA_mask==0,ndvi,ndvi_smooth_spacetime)" output=ndvi_filter_smooth_spacetime basename=ndvi_filter_smooth_spacetime
 ```
 
-### 15. Repetir pasos en EVI
+### 15. Repeat steps in EVI
 Para repetir con datos EVI, reemplazar NDVI por EVI en los pasos anteriores
 
 

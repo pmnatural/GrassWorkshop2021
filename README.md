@@ -12,7 +12,7 @@ The objectives of this workflow are:
 * Generate time series where pixels with problems are replaced with data interpolated spatially and/or temporally. 
 
 ## Requerimientos para realizar este tutorial
-Tener la ultima versión de i.modis instalada ya que si no no puede descargar los productos MOD13A3, que fueron recientemente agregados.
+* Install i.modis last version to be able to download MOD13A3 products, recently uploaded. 
 
 Para más detalles sobre este producto de MODIS, visite: https://lpdaac.usgs.gov/products/mod13q1v006/
 Tener creado un nuevo mapset con el SRC deseado (en este ejemplo posgar_faja5)

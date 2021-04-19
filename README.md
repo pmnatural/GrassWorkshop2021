@@ -17,7 +17,7 @@ The objectives of this workflow are:
 ...
 these instructions are written and had been tested to run on Windows 10 and Ubuntu xx)
 
-Full script can be downloaded [here](TP_Grass_MOD13Q3.sh)
+Full script can be downloaded from [here](TP_Grass_MOD13Q3.sh)
 
 ### 1. Create a new Mapset under Location posgar_faja5
 ```

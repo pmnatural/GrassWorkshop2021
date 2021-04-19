@@ -120,8 +120,9 @@ If the data of a pixel from the masked series and the space-time filtered series
 ### 15. Repeat steps for EVI
 To repeat with EVI data, replace NDVI with EVI in the steps above
 
+To make visual comparisons between the original, masked and spatially and / or temporally filtered images, the swipe tool can be used.
 
 
-
+![](Images/Animacion_Map_Swipe.gif "swipe tool: spatial filter vs. space-time filter")
 
 

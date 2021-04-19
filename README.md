@@ -4,12 +4,12 @@ GrassGIS Workshop 2021 - Taller Grass 2021
 
 Aqui esta nuestro proyecto final de trabajo del Taller de Grass 2021 del Instituto Gulich dictado por Verónica Andreo.  This is the repository of our final project of the GRASS GIS workshop given by Veronica Andreo at Instituto Gulich
 
-Los objetivos de este tutorial son los siguientes:
+The objectives of this workflow are:
 
-* Aprender a descargar productos de MODIS, importarlos y re-proyectarlos para trabajar en Grass.
-* Controlar la calidad de los pixeles de la serie de tiempo mediante la información completa que brinda MODIS (banda Quality Assessment).
-* Enmascarar aquellos pixeles que presentaron deficiencias en su procesamiento.
-* Generar series de tiempo donde los datos faltantes han sido reemplazados mediate interpolacion espacial y/o temporal.
+* Download MODIS products, import and re-project them to work with Grass.
+* Use MODIS' Quality Assessment band to control time series pixels quality.
+* Mask low quality pixels.
+* Generate time series where pixels with problems are replaced with data interpolated spatially and/or temporally. 
 
 ## Requerimientos para realizar este tutorial
 Tener la ultima versión de i.modis instalada ya que si no no puede descargar los productos MOD13A3, que fueron recientemente agregados.

@@ -138,6 +138,6 @@ t.rast.mapcalc inputs=QA_mask,evi,evi_smooth expression="if(QA_mask==0,evi,evi_s
 
 t.rast.mapcalc inputs=QA_mask,evi,evi_smooth_spacetime expression="if(QA_mask==0,evi,evi_smooth_spacetime)" output=evi_filter_smooth_spacetime basename=evi_filter_smooth_spacetime
 
-
+![](Images/probando.png)
 
 

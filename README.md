@@ -111,32 +111,10 @@ t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth expression="if(QA_mask==0,ndvi,nd
 t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth_spacetime expression="if(QA_mask==0,ndvi,ndvi_smooth_spacetime)" output=ndvi_filter_smooth_spacetime basename=ndvi_filter_smooth_spacetime
 ```
 
-### 15. Mask low quality pixels in evi serie
-t.rast.mapcalc inputs=QA_mask,evi expression="if(QA_mask==0,evi,null())" output=evi_masked basename=evi_masked
+### 15. Repetir pasos en EVI
+Para repetir con datos EVI, reemplazar NDVI por EVI en los pasos anteriores
 
-### 16. Create an evi time series using spatial interpolation (by neighborhood analysis)
 
-t.rast.neighbors input=evi output=evi_nb method=average basename=evi_nb size=3
-
-### 17. Creo una serie de imágenes suavizada a partir de una media móvil para el evi
-
-t.rast.algebra expression="evi_smooth = 0.5*(evi[1]+evi[-1])" basename=evi_smooth
-
-### 18. Creo una serie de imágenes suavizada teniendo en cuenta el contexto espacio-temporal para el evi 
-
-t.rast.algebra expression="evi_smooth_spacetime=0.3*evi[1]+0.3*evi[-1]+0.10*(evi[0,-1]+evi[0,1]+evi[-1,0]+evi[1,0])" basename=evi_smooth_spacetime
-
-### 19. Reemplazo los pixeles enmascarados de acuerdo a las imágenes de "vecindad"
-
-t.rast.mapcalc inputs=QA_mask,evi,evi_nb expression="if(QA_mask==0,evi,evi_nb)" output=evi_filter_nb basename=evi_filter_nb
- 
-### 20. Reemplazo los pixeles enmascarados de acuerdo al suavizado por media móvil
-
-t.rast.mapcalc inputs=QA_mask,evi,evi_smooth expression="if(QA_mask==0,evi,evi_smooth)" output=evi_filter_smooth basename=evi_filter_smooth
-
-### 21. Reemplazo los pixeles enmascarados de acuerdo al contexto espacio-temporal
-
-t.rast.mapcalc inputs=QA_mask,evi,evi_smooth_spacetime expression="if(QA_mask==0,evi,evi_smooth_spacetime)" output=evi_filter_smooth_spacetime basename=evi_filter_smooth_spacetime
 
 ![](Images/probando.png)
 

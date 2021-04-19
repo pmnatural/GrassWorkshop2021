@@ -11,7 +11,8 @@ The objectives of this workflow are:
 ## Requirements to perform this tutorial
 * Install [i.modis](https://grass.osgeo.org/grass78/manuals/addons/i.modis.html) lastest version.
 * Create a mapset with the selected SRC (posgar_faja5, EPSG:5347)
-...
+
+
 these instructions are written and had been tested to run on Windows 10 and Ubuntu xx)
 
 Full script can be downloaded from [here](TP_Grass_MOD13Q3.sh)

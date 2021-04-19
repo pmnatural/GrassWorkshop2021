@@ -13,6 +13,8 @@ Los objetivos de este tutorial son los siguientes:
 
 ## Requerimientos para realizar este tutorial
 Tener la ultima versión de i.modis instalada ya que si no no puede descargar los productos MOD13A3, que fueron recientemente agregados.
+
+Para más detalles sobre este producto de MODIS, visite: https://lpdaac.usgs.gov/products/mod13q1v006/
 Tener creado un nuevo mapset con el SRC deseado (en este ejemplo posgar_faja5)
 ...
 Estas instrucciones estan escritas y han sido probadas para correr en ... (windows xx, ubuntu xx)
@@ -54,6 +56,7 @@ t.create output=QA type=strds temporaltype=absolute title="QA 16 days" descripti
 t.register -i input=QA  maps=`g.list type=raster pattern="MOD13Q1*VI_Quality*" separator=comma`  start="2020-01-01" increment="16 days"
 ```
 ### 6. Generate a mask for each bitcode flag
+# Para conocer la codificación específica de la banda utilizada, recomendamos visitar la Tabla 5 (página 16) del siguiente documento: https://lpdaac.usgs.gov/documents/103/MOD13_User_Guide_V6.pdf
 ```
 t.rast.mapcalc inputs=QA output=QA_f1 basename=QA_f1 expression="QA & 0x03" 
 t.rast.mapcalc inputs=QA output=QA_f2 basename=QA_f2 expression="QA & 0x3c" 

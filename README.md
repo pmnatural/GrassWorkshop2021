@@ -42,12 +42,15 @@ i.modis.import files=/tmp/listfileMOD13A3.006.txt \
 ```
 g.region -p raster=MOD13Q1.A2020001.h13v12.single_250m_16_days_NDVI
 ```
-### 5. Create the STRDS (time series) for NDVI (EVI) and QA bands and register maps
+### 5.1 Create the STRDS (time series) for NDVI (EVI) and QA bands and register maps
 ```
 t.create type=strds temporaltype=absolute output=ndvi \
   title="NDVI" \
   description="NDVI 16 days MOD13Q1" 
 t.register -i input=ndvi  maps=`g.list type=raster pattern="MOD13Q1*NDVI*" separator=comma`  start="2020-01-01" increment="16 days" 
+
+###  _5.2 Create the STRDS (time series) for NDVI (EVI) and QA bands and register maps_
+
 t.create type=strds temporaltype=absolute output=evi \
   title="EVI" \
   description="EVI 16 days MOD13Q1" 
@@ -56,7 +59,8 @@ t.create output=QA type=strds temporaltype=absolute title="QA 16 days" descripti
 t.register -i input=QA  maps=`g.list type=raster pattern="MOD13Q1*VI_Quality*" separator=comma`  start="2020-01-01" increment="16 days"
 ```
 ### 6. Generate a mask for each bitcode flag
-# Para conocer la codificación específica de la banda utilizada, recomendamos visitar la Tabla 5 (página 16) del siguiente documento: https://lpdaac.usgs.gov/documents/103/MOD13_User_Guide_V6.pdf
+QA pixel coding is explained in Table 5 from the [MOD13 User Guide](https://lpdaac.usgs.gov/documents/103/MOD13_User_Guide_V6.pdf)
+
 ```
 t.rast.mapcalc inputs=QA output=QA_f1 basename=QA_f1 expression="QA & 0x03" 
 t.rast.mapcalc inputs=QA output=QA_f2 basename=QA_f2 expression="QA & 0x3c" 

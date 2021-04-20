@@ -9,7 +9,7 @@ The objectives of this workflow are:
 * Generate time series where pixels with problems are replaced with data interpolated spatially and/or temporally. 
 
 ## Requirements to perform this tutorial
-* To be able to download data you needs to obtain user and password for the [NASA Earthdata](https://search.earthdata.nasa.gov/search) Login. Then, a file (named NASA_SETTING.txt) where the first row is the username  and the second row is the password:
+* To be able to download data you need to obtain user and password for  [NASA Earthdata](https://search.earthdata.nasa.gov/search) Login. Then, create a file (named NASA_SETTING.txt) where the first row is the username  and the second row is the password:
 
       your_NASA_username
       your_NASA_password

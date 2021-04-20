@@ -1,4 +1,4 @@
-# Space and/or time filters applied to MODIS NDVI and EVI products 
+# Space and/or temporal filters applied to MODIS NDVI and EVI products 
 GrassGIS Workshop 2021 - Taller Grass 2021
 
 The objectives of this workflow are:

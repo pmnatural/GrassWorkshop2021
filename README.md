@@ -117,7 +117,7 @@ If the data of a pixel from the masked series and the space-time filtered series
 
 ![Ejemplo_Reemplazo_NDVI_serie_temporal](https://user-images.githubusercontent.com/82115312/115326020-f6896b00-a162-11eb-9f5d-6cf3abfe341d.jpg)
 
-Use the swipe tool to visualize comparisons between the original, masked and spatially and / or temporally filtered images.
+Use the swipe tool to visualize comparisons between the original, masked and spatially and / or temporally filtered images. In this case, two different methods to interpolate NDVI data.
 
 ![Animacion_Map_Swipe](https://user-images.githubusercontent.com/82115312/115326538-cee6d280-a163-11eb-9048-c8e6c83a2b29.gif)
 

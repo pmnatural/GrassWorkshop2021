@@ -116,7 +116,8 @@ To repeat with EVI data, replace NDVI with EVI in the steps above.
 To make visual comparisons between the original, masked and spatially and / or temporally filtered images, the swipe tool can be used.
 
 
-![Animacion_Map_Swipe](https://user-images.githubusercontent.com/82115312/115326224-55e77b00-a163-11eb-9996-e7bee632027d.jpg)
+![Animacion_Map_Swipe](https://user-images.githubusercontent.com/82115312/115326538-cee6d280-a163-11eb-9048-c8e6c83a2b29.gif)
+
 
 
 

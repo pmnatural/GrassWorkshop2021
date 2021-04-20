@@ -50,7 +50,7 @@ t.register -i input=ndvi  maps=`g.list type=raster pattern="MOD13Q1*NDVI*" separ
 
 #### 5.2 Create the STRDS for pixel QA and register
 ```
-t.create output=QA type=strds temporaltype=absolute title="QA 16 days" description="Calidad del pixel"
+t.create output=QA type=strds temporaltype=absolute title="QA 16 days" description="Pixel Quality"
 t.register -i input=QA  maps=`g.list type=raster pattern="MOD13Q1*VI_Quality*" separator=comma`  start="2020-01-01" increment="16 days"
 ```
 
@@ -110,12 +110,14 @@ If the data of a pixel from the masked series and the space-time filtered series
 
 ![Ejemplo_Reemplazo_NDVI_serie_temporal](https://user-images.githubusercontent.com/82115312/115326020-f6896b00-a162-11eb-9f5d-6cf3abfe341d.jpg)
 
-### 15. Repeat steps for EVI
-To repeat with EVI data, replace NDVI with EVI in the steps above.
-
 Use the swipe tool to visualize comparisons between the original, masked and spatially and / or temporally filtered images.
 
 ![Animacion_Map_Swipe](https://user-images.githubusercontent.com/82115312/115326538-cee6d280-a163-11eb-9048-c8e6c83a2b29.gif)
+
+
+### 15. Repeat steps for EVI
+To repeat with EVI data, replace NDVI with EVI in the steps above.
+
 
 
 

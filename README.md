@@ -15,10 +15,9 @@ The objectives of this workflow are:
       your_NASA_password
 
 * Install [i.modis](https://grass.osgeo.org/grass78/manuals/addons/i.modis.html) lastest version.
-* Create a mapset with the selected SRC (posgar_faja5, EPSG:5347).
+* Create a mapset with the selected SRC (posgar_faja5 which is EPSG:5347).
 
-
-These instructions are written and had been tested to run on Windows 10 and Ubuntu xx).
+These instructions are written and had been tested to run on Windows 10 and Ubuntu 20.04).
 
 Full script can be downloaded from [here](TP_Grass_MOD13Q1.sh).
 

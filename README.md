@@ -72,7 +72,7 @@ t.rast.mapcalc inputs=QA output=QA_f7 basename=QA_f7 expression="QA & 0x3800"
 t.rast.mapcalc inputs=QA output=QA_f8 basename=QA_f8 expression="QA & 0x4000" 
 t.rast.mapcalc inputs=QA output=QA_f9 basename=QA_f9 expression="QA & 0x8000"
 ```
-### 7. Create a mask for each date using flags' information
+### 7. Create a mask for each date using flag´s information
 ```
 t.rast.mapcalc inputs=QA_f1,QA_f2,QA_f3,QA_f4,QA_f5,QA_f6,QA_f7,QA_f8,QA_f9 output=QA_mask basename=QA_mask expression="if(QA_f1 == 0 && QA_f2 < 20 && QA_f4 < 192 && QA_f6 == 0 && QA_f8 == 0 && QA_f9 ==  0, 0, 1)"
 ```

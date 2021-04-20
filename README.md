@@ -1,6 +1,8 @@
 # Space and/or temporal filters applied to MODIS NDVI and EVI products 
 GrassGIS Workshop 2021 - Taller Grass 2021
 
+Authors: Priscila Gail Minotti - Micaela Redlich - Adriana Gimena Martínez - Bruno Lara
+
 The objectives of this workflow are:
 
 * Download [MODIS](https://lpdaac.usgs.gov/products/mod13q1v006/) products, import and re-project them to work with Grass.

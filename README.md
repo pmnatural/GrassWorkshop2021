@@ -76,7 +76,7 @@ t.rast.mapcalc inputs=QA_f1,QA_f2,QA_f3,QA_f4,QA_f5,QA_f6,QA_f7,QA_f8,QA_f9 outp
 ```
 t.rast.mapcalc inputs=QA_mask,ndvi expression="if(QA_mask==0,ndvi,null())" output=ndvi_masked basename=ndvi_masked
 ```
-![](![](Imágenes/Ejemplo_NDVI_enmascarado.jpg "masked")
+![Ejemplo_NDVI_enmascarado_1_1](https://user-images.githubusercontent.com/82115312/115325468-0c4a6080-a162-11eb-9299-b12a579c0583.jpg)
 ### 9. Create a ndvi time series using spatial interpolation (by neighborhood analysis) 
 ```
 t.rast.neighbors input=ndvi output=ndvi_nb method=average basename=ndvi_nb size=3

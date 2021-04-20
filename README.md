@@ -85,6 +85,7 @@ t.rast.mapcalc inputs=QA_mask,ndvi expression="if(QA_mask==0,ndvi,null())" outpu
    ![Ejemplo_NDVI_enmascarado_1_1](https://user-images.githubusercontent.com/82115312/115325468-0c4a6080-a162-11eb-9299-b12a579c0583.jpg)
   
    Example of a masked NDVI image.
+
 ### 9. Create a ndvi time series using spatial interpolation (by neighborhood analysis) 
 ```
 t.rast.neighbors input=ndvi output=ndvi_nb method=average basename=ndvi_nb size=3

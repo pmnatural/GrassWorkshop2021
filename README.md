@@ -42,7 +42,7 @@ i.modis.import files=/tmp/listfileMOD13Q1.006.txt \
 ```
 g.region -p raster=MOD13Q1.A2020001.h13v12.single_250m_16_days_NDVI
 ```
-### 5. Create the STRDS (time series) for NDVI, EVI and QA and register their lists of images 
+### 5. Create the STRDS (time series) for NDVI and QA and register their lists of images 
 
 #### 5.1 Create the STRDS for NDVI and register
 ```

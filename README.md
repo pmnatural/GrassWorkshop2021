@@ -108,7 +108,7 @@ t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth_spacetime expression="if(QA_mask=
 
 If the data of a pixel from the masked series and the space-time filtered series are plotted:
 
-![](Images/Ejemplo_Reemplazo_NDVI_serie_temporal.JPG "masked vs space-time filtered")
+![Ejemplo_Reemplazo_NDVI_serie_temporal](https://user-images.githubusercontent.com/82115312/115326020-f6896b00-a162-11eb-9f5d-6cf3abfe341d.jpg)
 
 ### 15. Repeat steps for EVI
 To repeat with EVI data, replace NDVI with EVI in the steps above.

@@ -114,7 +114,7 @@ t.rast.mapcalc inputs=QA_mask,ndvi,ndvi_smooth_spacetime expression="if(QA_mask=
 ```
 ![Ejemplo_NDVI_datos_espacio-temporales_1](https://user-images.githubusercontent.com/82115312/115325896-cf329e00-a162-11eb-8097-4c4bca8c68b9.jpg)
   
-   Example of pace-time filtered image.
+   Example of a space-time filtered NDVI image.
 
 
 If the data of a pixel from the masked series and the space-time filtered series are plotted:

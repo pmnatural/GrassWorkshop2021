@@ -11,8 +11,8 @@ The objectives of this workflow are:
 ## Requirements to perform this tutorial
 * To be able to download data you needs to obtain user and password for the [NASA Earthdata Login] (https://search.earthdata.nasa.gov/search). Then, a file where the first row is the username  and the second row is the password:
 
-    your_NASA_username
-    your_NASA_password
+*    your_NASA_username
+*    your_NASA_password
 
 * Install [i.modis](https://grass.osgeo.org/grass78/manuals/addons/i.modis.html) lastest version.
 * Create a mapset with the selected SRC (posgar_faja5, EPSG:5347).
